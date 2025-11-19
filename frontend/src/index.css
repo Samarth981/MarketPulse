@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nav-link{
+  margin-left: 40px;
+}
+
+.textDeco{
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.7;
+}
+a.textDeco.text-body-secondary:hover {
+  color: #5288D7 !important;
+}
+
+.rounded-image {
+  border-radius:100%;
+  height: 60%; 
+}
+
+.productDec {
+  font-size: 1rem;
+  line-height : 1.8;
+  margin-bottom: 15px;
+  color: '#424242';
+}
+
+.smallPera{
+  font-size: 0.75rem;
+  line-height : 18px;
+  display: block;
+  color : rgb(150, 150, 150);
+  margin-top: 15px;
+  font-weight: 500;
+  font-family: "Inter",serif;
+  line-height: 18px;
+}
+.productMidImg{
+  width: 150px;
+  height: 35px;
+}
+.midPera{
+  color: #424242;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 400;
+  font-family: "Inter",serif;
+  line-height: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid rgb(179, 179, 179);
+  table-layout: fixed;
+}
+td{
+  padding: 16px !important;
+  min-width: 150px;
+}
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  padding-bottom: 30px !important;
+  border-bottom: 1px solid rgb(179, 179, 179) !important; 
+}
+ul.list-items{
+  padding-left : 20px;
+}
+li{
+  padding-bottom: 5px;
+}
+
+.BrokerageP{
+  font-size: 0.85rem;
+  line-height : 18px;
+  display: block;
+  color : rgb(94, 94, 94);
+  margin-top: 15px;
+  font-weight: 400;
+  font-family: "Inter",serif;
+  line-height: 22px !important;
+  padding-bottom: 5px;
+  table-layout: fixed;
+  font-family: "Inter",serif;
+}
+.Brokerageli{
+  font-size: 0.85rem;
+  line-height : 18px;
+  display: block;
+  color : rgb(94, 94, 94);
+  margin-top: 15px;
+  font-weight: 400;
+  font-family: "Inter",serif;
+  line-height: 18px;
+  padding-bottom: 5px;
+}
+h6 {
+  color : rgb(53, 53, 53);
+}
+
+.RaisTicketIcone{
+  padding-left: 10px;
+}
+#supportHero{
+  background-color: #387ed1;
+  color: #fff;
+}
+#supportHeroA{
+  color: #fff;
+}
+#supportWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin:0 150px ;
+}
+#supportHero{
+  padding: 15px 50px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+}
+.SupportMargin{
+margin-left: 15px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%; /* Adjust width as needed */
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px;
+  padding-left: 35px; /* Space for the icon inside the input */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;  /* Moves icon inside the input */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: gray;
+  padding-right: 15px;
+}
