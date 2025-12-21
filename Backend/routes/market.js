@@ -26,40 +26,47 @@ const toApiSymbol = (symbol) => {
   return `${mapped}.${DEFAULT_EXCHANGE}`;
 };
 
+const cache = {};
+
 router.get("/watchlist", async (req, res) => {
   const results = [];
 
   for (const symbol of symbols) {
-    const apiSymbol = toApiSymbol(symbol);
     try {
       const response = await axios.get("https://www.alphavantage.co/query", {
         params: {
           function: "GLOBAL_QUOTE",
-          symbol: apiSymbol,
+          symbol: toApiSymbol(symbol),
           apikey: API_KEY,
         },
         timeout: 15000,
       });
 
       const data = response.data["Global Quote"];
-      if (!data) continue;
+      if (data) {
+        const price = parseFloat(data["05. price"]);
+        const change = parseFloat(data["09. change"]);
+        const changePercent = data["10. change percent"];
 
-      const price = parseFloat(data["05. price"]);
-      const change = parseFloat(data["09. change"]);
-      const changePercent = data["10. change percent"];
-
-      const result = {
-        name: symbol,
-        price: Number.isFinite(price) ? price : 0,
-        percent: changePercent || "0.00%",
-        isDown: Number.isFinite(change) ? change < 0 : false,
-        lastUpdated: new Date().toISOString(),
-      };
-      results.push(result);
+        cache[symbol] = {
+          name: symbol,
+          price: Number.isFinite(price) ? price : 0,
+          percent: changePercent || "0.00%",
+          isDown: Number.isFinite(change) ? change < 0 : false,
+          lastUpdated: new Date().toISOString(),
+        };
+      } else {
+        console.log("No data returned");
+      }
     } catch (err) {
-      console.error(`Error fetching ${symbol}:`, err.message);
-      continue;
+      console.log("data not available");
     }
+
+    // always return cached data if available
+    if (cache[symbol]) results.push(cache[symbol]);
+
+    // shorter delay (e.g., 12s) to respect API limits
+    await new Promise((r) => setTimeout(r, 12000));
   }
 
   res.json(results);
