@@ -57,6 +57,5 @@ mongoose
     app.listen(PORT, () => console.log(`App started`));
   })
   .catch((err) => {
-    console.error("DB connection error:", err.message);
     setTimeout(() => process.exit(1), 5000);
   });

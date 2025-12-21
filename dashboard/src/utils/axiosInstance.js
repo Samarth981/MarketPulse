@@ -6,7 +6,6 @@ const axiosInstance = axios.create({
 });
 
 function showErrorPopup(message) {
-  console.log("Popup should appear:", message);
   const popup = document.createElement("div");
   popup.style.position = "fixed";
   popup.style.top = "20px";
@@ -43,7 +42,6 @@ function showErrorPopup(message) {
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
-    console.log("Error Response:", error.response);
     const originalRequest = error.config;
 
     try {
@@ -112,7 +110,6 @@ axiosInstance.interceptors.response.use(
         showErrorPopup("Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.error("Error during token refresh or retry:", error);
       showErrorPopup("An error occurred. Please try again later.");
     }
 
