@@ -57,7 +57,8 @@ router.get("/watchlist", async (req, res) => {
       };
       results.push(result);
     } catch (err) {
-      throw new ValidationError(`Error fetching ${symbol}:`, err.message);
+      console.error(`Error fetching ${symbol}:`, err.message);
+      continue;
     }
   }
 
